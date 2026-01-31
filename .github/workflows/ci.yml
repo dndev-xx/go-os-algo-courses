@@ -1,11 +1,15 @@
 name: CI
+
 on:
   push:
     branches: [dev]
   pull_request:
     branches: [dev]
+
 env:
-  GO_VERSION: "1.23"
+  GO_VERSION: 1.25
+  GOLANGCI_LINT_VERSION: "v2.8.0"
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -13,11 +17,20 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: ${{ env.GO_VERSION }}
+
       - uses: actions/checkout@v4
-      - uses: golangci/golangci-lint-action@v6
-        with:
-          version: v1.62.2
-          args: --timeout=5m
+
+      - name: Install golangci-lint
+        run: |
+          echo "Installing golangci-lint ${GOLANGCI_LINT_VERSION}"
+          curl -sSfL https://github.com/golangci/golangci-lint/releases/download/${GOLANGCI_LINT_VERSION}/golangci-lint-${GOLANGCI_LINT_VERSION#v}-linux-amd64.tar.gz \
+            | tar -xz -C /tmp
+          sudo mv "/tmp/golangci-lint-${GOLANGCI_LINT_VERSION#v}-linux-amd64/golangci-lint" /usr/local/bin/
+          golangci-lint --version
+
+      - name: Run golangci-lint
+        run: |
+          golangci-lint run --timeout=5m ./...
 
   test:
     runs-on: ubuntu-latest
@@ -31,7 +44,7 @@ jobs:
   build:
     strategy:
       matrix:
-        go-version: [^1.23]
+        go-version: [^1.25.4]
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
