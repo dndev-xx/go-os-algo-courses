@@ -22,12 +22,10 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 )
 
 func main() {
 	log.Println("Hello, World!", os.Args[1])
-	fmt.Println("test golangci-lint")
 }
