@@ -36,3 +36,9 @@ func Gpmagic(cond func(i, j int) bool) (string, error) {
 func IsDiagonalCond(i, j int) bool {
 	return i < j
 }
+
+// IsStrongDiagonalCond return true if i == j.
+// Creates a diagonal pattern where '#' strong diagonal is line.
+func IsStrongDiagonalCond(i, j int) bool {
+	return i == j
+}
