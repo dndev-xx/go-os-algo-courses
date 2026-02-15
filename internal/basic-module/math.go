@@ -1,6 +1,8 @@
 package basicmodule
 
-import "math"
+import (
+	"math"
+)
 
 // IteractivePow func is implementation of math.Pow
 // Iterative algorithm O(N) time complexity
@@ -97,4 +99,60 @@ func FindSimpleDiv(n int) []int {
 		}
 	}
 	return rsl
+}
+
+// FindDiv  div only simple number
+// O(n*sqrt(N)/ln(N)) time complexity.
+func FindDiv(n int) []int {
+	rsl := make([]int, 0, n)
+	for i := 2; i <= n; i++ {
+		if isPrime(i) {
+			rsl = append(rsl, i)
+		}
+	}
+	return rsl
+}
+
+// FindEratosthenes O(LogLogN) time complexity.
+func FindEratosthenes(n int) []int {
+	res := make([]int, 0, n)
+	prev := 0
+	for i := 2; i <= n; i++ {
+		cur := eratosthenes(i)
+		if cur > prev {
+			prev = cur
+			res = append(res, i)
+		}
+	}
+	return res
+}
+
+func eratosthenes(n int) int {
+	prime := make([]bool, n+1)
+	cnt := 0
+	for i := 2; i <= n; i++ {
+		if !prime[i] {
+			cnt++
+			for j := i * i; j <= n; j += i {
+				prime[j] = true
+			}
+		}
+	}
+	return cnt
+}
+
+func isPrime(num int) bool {
+	if num == 2 {
+		return true
+	}
+	if num%2 == 0 {
+		return false
+	}
+	sqrtNum := int(math.Sqrt(float64(num)))
+	for i := 3; i <= sqrtNum; i += 2 {
+		if num%i == 0 {
+			return false
+		}
+	}
+	return true
 }

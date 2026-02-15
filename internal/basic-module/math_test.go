@@ -128,7 +128,11 @@ func TestFindSimpleDiv(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got := basicmodule.FindSimpleDiv(tt.n)
+			gott := basicmodule.FindDiv(tt.n)
+			gottt := basicmodule.FindEratosthenes(tt.n)
 			assert.Equal(t, tt.want, got)
+			assert.Equal(t, tt.want, gott)
+			assert.Equal(t, tt.want, gottt)
 		})
 	}
 }
