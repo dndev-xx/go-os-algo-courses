@@ -1,0 +1,20 @@
+[0;36mFibonacci Benchmark Results:[0m
+----------------------------------------
+BenchmarkIterectiveFibonacci/base=5-14   100979870 ops  11.68ns       48 B/op     1 allocs/op
+BenchmarkIterectiveFibonacci/base=10-14  70332073 ops  17.87ns       96 B/op     1 allocs/op
+BenchmarkIterectiveFibonacci/base=15-14  36200776 ops  32.15ns      128 B/op     1 allocs/op
+BenchmarkIterectiveFibonacci/base=20-14  29916390 ops  40.09ns      176 B/op     1 allocs/op
+BenchmarkIterectiveFibonacci/base=25-14  24515562 ops  49.25ns      208 B/op     1 allocs/op
+BenchmarkIterectiveFibonacci/base=30-14  19628997 ops  61.43ns      256 B/op     1 allocs/op
+BenchmarkRecFibonacci/base=5-14          131513731 ops  9.098ns        0 B/op     0 allocs/op
+BenchmarkRecFibonacci/base=10-14         10585020 ops  114.3ns        0 B/op     0 allocs/op
+BenchmarkRecFibonacci/base=15-14           899162 ops  1.24μs        0 B/op     0 allocs/op
+BenchmarkRecFibonacci/base=20-14            89252 ops 13.68μs        0 B/op     0 allocs/op
+BenchmarkRecFibonacci/base=25-14             7888 ops 150.68μs        0 B/op     0 allocs/op
+BenchmarkRecFibonacci/base=30-14              723 ops 1673.56μs        0 B/op     0 allocs/op
+BenchmarkGoldenRationFibonacci/base=5-14 166863300 ops  7.145ns        0 B/op     0 allocs/op
+BenchmarkGoldenRationFibonacci/base=10-14 150647296 ops  7.975ns        0 B/op     0 allocs/op
+BenchmarkGoldenRationFibonacci/base=15-14 150103986 ops  8.008ns        0 B/op     0 allocs/op
+BenchmarkGoldenRationFibonacci/base=20-14 136754175 ops  8.786ns        0 B/op     0 allocs/op
+BenchmarkGoldenRationFibonacci/base=25-14 143013144 ops  8.374ns        0 B/op     0 allocs/op
+BenchmarkGoldenRationFibonacci/base=30-14 143801876 ops  8.377ns        0 B/op     0 allocs/op

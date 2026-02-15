@@ -1,0 +1,5 @@
+[0;36mLarge_Exponent Benchmark Results:[0m
+----------------------------------------
+BenchmarkLargeExponent/IteractivePow-large-14  1648052 ops  711.5ns        0 B/op     0 allocs/op
+BenchmarkLargeExponent/MathPow-large-14  100000000 ops  11.49ns        0 B/op     0 allocs/op
+BenchmarkLargeExponent/BinaryExpansionPow-14 100000000 ops  10.12ns        0 B/op     0 allocs/op

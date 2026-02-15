@@ -1,5 +1,7 @@
 package basicmodule
 
+import "math"
+
 // IteractivePow func is implementation of math.Pow
 // Iterative algorithm O(N) time complexity
 // Param:
@@ -67,6 +69,14 @@ func Fibonacci(n int) int {
 		fib[i] = fib[i-1] + fib[i-2]
 	}
 	return fib[n]
+}
+
+// GoldenRatioFibonacci algorithm O(N) time complexity
+// fi = (1 + sqrt(5))/2
+// Fn = fi^n / sqrt(5) + 1/2.
+func GoldenRatioFibonacci(n float64) uint64 {
+	fi := (1.0 + math.Sqrt(5)) / 2.0
+	return uint64(math.Floor(math.Pow(fi, n)/math.Sqrt(5) + 1.0/2.0))
 }
 
 // FindSimpleDiv algorithm O(N^2) time complexity.

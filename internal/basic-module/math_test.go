@@ -167,3 +167,29 @@ func TestBinaryExpansionPow(t *testing.T) {
 		})
 	}
 }
+
+func TestGoldenRatioFibonacci(t *testing.T) {
+	tests := []struct {
+		name string // description of this test case
+		// Named input parameters for target function.
+		n    float64
+		want uint64
+	}{
+		{
+			name: "test01_simple_fib",
+			n:    5,
+			want: 5,
+		},
+		{
+			name: "test02_simple_fib",
+			n:    10,
+			want: 55,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := basicmodule.GoldenRatioFibonacci(tt.n)
+			assert.InEpsilon(t, tt.want, got, 0.000001)
+		})
+	}
+}

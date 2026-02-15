@@ -1,0 +1,10 @@
+[0;36mPower_Math Benchmark Results:[0m
+----------------------------------------
+BenchmarkMathPow/base=2,exp=10-14        151754670 ops  7.808ns        0 B/op     0 allocs/op
+BenchmarkMathPow/base=2,exp=-10-14       158483505 ops  7.585ns        0 B/op     0 allocs/op
+BenchmarkMathPow/base=2.5,exp=20-14      140562988 ops  8.503ns        0 B/op     0 allocs/op
+BenchmarkMathPow/base=0.5,exp=15-14      160305363 ops  7.505ns        0 B/op     0 allocs/op
+BenchmarkMathPow/base=3,exp=0-14         664458420 ops  1.817ns        0 B/op     0 allocs/op
+BenchmarkMathPow/base=0,exp=5-14         699445740 ops  1.715ns        0 B/op     0 allocs/op
+BenchmarkMathPow/base=1.0001,exp=100-14  121670988 ops  9.849ns        0 B/op     0 allocs/op
+BenchmarkMathPow/base=0.9999,exp=100-14  122483240 ops  9.804ns        0 B/op     0 allocs/op

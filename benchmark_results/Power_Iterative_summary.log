@@ -1,0 +1,10 @@
+[0;36mPower_Iterative Benchmark Results:[0m
+----------------------------------------
+BenchmarkIteractivePow/base=2,exp=10-14  314142121 ops  3.703ns        0 B/op     0 allocs/op
+BenchmarkIteractivePow/base=2,exp=-10-14 331072498 ops  3.677ns        0 B/op     0 allocs/op
+BenchmarkIteractivePow/base=2.5,exp=20-14 191895838 ops  6.234ns        0 B/op     0 allocs/op
+BenchmarkIteractivePow/base=0.5,exp=15-14 249393898 ops  4.801ns        0 B/op     0 allocs/op
+BenchmarkIteractivePow/base=3,exp=0-14   765716126 ops  1.578ns        0 B/op     0 allocs/op
+BenchmarkIteractivePow/base=0,exp=5-14   768909774 ops  1.569ns        0 B/op     0 allocs/op
+BenchmarkIteractivePow/base=1.0001,exp=100-14 28678003 ops  42.08ns        0 B/op     0 allocs/op
+BenchmarkIteractivePow/base=0.9999,exp=100-14 28610767 ops  42.04ns        0 B/op     0 allocs/op
