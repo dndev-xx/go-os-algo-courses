@@ -10,6 +10,7 @@ RESET  := \033[0m
 GO_FILES_FMT := $(shell find . -type f -name '*.go' -not -path "./vendor/*" -not -path "*.gen.go" | tr "\n" " ")
 GO_MAIN := "./cmd/"
 BIN_SOURCE := "./bin/main"
+BPATH := "./internal/basic-module/..."
 
 .PHONY: build
 build:
@@ -29,6 +30,12 @@ test:
 	go test -race -v -failfast -short -coverprofile=bin/coverage.out ./...
 	@echo "$(YELLOW) Total coverage:$(RESET)"
 	go tool cover -func=bin/coverage.out | grep total | awk '{print $$3}'
+	@echo "$(GREEN) Operation execution successfully.$(RESET)"
+
+.PHONY: btest
+btest:
+	@echo "$(YELLOW) Start bench test$(RESET)"
+	go test -bench=. $(BPATH)
 	@echo "$(GREEN) Operation execution successfully.$(RESET)"
 
 .PHONY: test-arg
@@ -108,4 +115,5 @@ help:
 	@echo "\t$(GREEN)run$(RESET):\t\toperation for start $(BIN_SOURCE) command(arg=test)"
 	@echo "\t$(GREEN)gen$(RESET):\t\toperation for start generation golang files command"
 	@echo "\t$(GREEN)test$(RESET):\t\toperation for start test project command"
+	@echo "\t$(GREEN)btest$(RESET):\t\toperation for start bench test project command(BPATH=./path/...)"
 	@echo "\t$(GREEN)test-arg$(RESET):\toperation for start test project command (hw=hw01)"

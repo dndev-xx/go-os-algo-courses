@@ -25,6 +25,31 @@ func IteractivePow(n float64, pow int) (float64, error) {
 	return src, nil
 }
 
+// BinaryExpansionPow algorithm O(LogN) time complexity.
+// x^y = x^y/2 * x^y/2 		where y - even
+// x^y = x^y/2 * x^y/2 * x 	where y - odd.
+func BinaryExpansionPow(n float64, pow int) float64 {
+	isNegative := false
+	res := 1.0
+	if pow == 0 {
+		return res
+	}
+	if pow < 0 {
+		pow = -pow
+		isNegative = true
+	}
+	r := BinaryExpansionPow(n, pow/2)
+	if pow%2 != 0 {
+		res = n * r * r
+	} else {
+		res = r * r
+	}
+	if isNegative {
+		res = 1 / res
+	}
+	return res
+}
+
 // RecFibonacci algorithm O(2^N) time complexity.
 func RecFibonacci(n int) int {
 	if n <= 1 {
@@ -52,6 +77,9 @@ func FindSimpleDiv(n int) []int {
 		for j := 1; j <= i; j++ {
 			if i%j == 0 {
 				cnt++
+			}
+			if cnt > 2 {
+				break
 			}
 		}
 		if cnt == 2 {

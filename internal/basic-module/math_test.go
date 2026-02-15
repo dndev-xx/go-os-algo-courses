@@ -132,3 +132,38 @@ func TestFindSimpleDiv(t *testing.T) {
 		})
 	}
 }
+
+func TestBinaryExpansionPow(t *testing.T) {
+	tests := []struct {
+		name string // description of this test case
+		// Named input parameters for target function.
+		n    float64
+		pow  int
+		want float64
+	}{
+		{
+			name: "test01",
+			n:    2.0,
+			pow:  3,
+			want: 8.0,
+		},
+		{
+			name: "test02",
+			n:    5.0,
+			pow:  3,
+			want: 125,
+		},
+		{
+			name: "test03",
+			n:    2.0,
+			pow:  -3,
+			want: 0.125,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := basicmodule.BinaryExpansionPow(tt.n, tt.pow)
+			assert.InEpsilon(t, tt.want, got, 0.000001)
+		})
+	}
+}
