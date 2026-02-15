@@ -39,8 +39,9 @@ btest:
 	@echo "$(GREEN) Operation execution successfully.$(RESET)"
 
 .PHONY: bench
-bench:
+bench-sh:
 	@echo "$(YELLOW) Start bench sh test$(RESET)"
+	chmod +x run_benchmarks.sh
 	./run_benchmarks.sh
 	@echo "$(GREEN) Operation execution successfully.$(RESET)"
 
@@ -122,5 +123,5 @@ help:
 	@echo "\t$(GREEN)gen$(RESET):\t\toperation for start generation golang files command"
 	@echo "\t$(GREEN)test$(RESET):\t\toperation for start test project command"
 	@echo "\t$(GREEN)btest$(RESET):\t\toperation for start bench test project command(BPATH=./path/...)"
-	@echo "\t$(GREEN)bench$(RESET):\t\toperation for start bench sh"
+	@echo "\t$(GREEN)bench-sh$(RESET):\t\toperation for start bench sh"
 	@echo "\t$(GREEN)test-arg$(RESET):\toperation for start test project command (hw=hw01)"
