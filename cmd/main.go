@@ -21,11 +21,4 @@
 //	go run main.go [module] --help
 package main
 
-import (
-	"log"
-	"os"
-)
-
-func main() {
-	log.Println("Hello, World!", os.Args[1])
-}
+func main() {}
