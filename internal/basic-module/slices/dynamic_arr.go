@@ -86,7 +86,7 @@ func (da *DArray[T]) Remove(index int) error {
 	if !da.isOutOfRangeIndex(index) {
 		return errors.New("index out of range")
 	}
-	for i := range index {
+	for i := 0; i < da.length-1; i++ {
 		srcPtr := unsafe.Pointer(uintptr(da.data) + da.elemSize*uintptr(i+1))
 		dstPtr := unsafe.Pointer(uintptr(da.data) + da.elemSize*uintptr(i))
 		memcpy(dstPtr, srcPtr, da.elemSize)
